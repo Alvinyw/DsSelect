@@ -3,6 +3,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>ds-select</title>
+<link type="text/css" rel="stylesheet" href="font-awesome.min.css"/>
 <script src="jquery.min.js"></script>
 <style>
 /*default*/
@@ -26,7 +27,7 @@
 <body>
 <div id="DropDown">
     <div class="selectWrapper">
-        <div class="toggleNode"><span class="cur-text">Option 1</span><span class="icon"></span></div>
+        <div class="toggleNode"><span class="cur-text">Option 1</span><span class="icon"><i class="fa fa-angle-down" aria-hidden="true"></i></span></div>
         <ul class="selectNode">
             <li class="on">Option 1</li>
             <li>Option 2</li>
@@ -65,8 +66,8 @@ $.fn.DsSelect = function (options) {
 		_currentOptionClass: "on", //当前选中的 option 新 Add 的 class
 		_toggleNodeClass: "on", //列表下拉时 _toggleNode 新 Add 的 class
 		_toggleIconClass: "on", //列表下拉时 _iconNode 新 Add 的 class
-		_toggleIconText: "", //列表下拉时 _iconNode 的内容（只有在 _iconNode.text()初始值不为空时该属性才有效）
 		_currentContentClass: "on", //当前显示的 content 独有的 class
+		_toggleIconText: "<i class='fa fa-angle-up' aria-hidden='true'></i>", //列表下拉时 _iconNode 的内容（只有在 _iconNode.text()初始值不为空时该属性才有效）
 		//插件的其他属性
 		_switchSpeed: "", //下拉列表 sildeUp/slideDown 的切换速度
 		_documentClick: "true", //点击页面是否收起下拉列表(true/false)
@@ -74,6 +75,8 @@ $.fn.DsSelect = function (options) {
 		_defaultBorderColor: "#ccc", //默认的边框背景色
 		_iconDefaultColor: "#999" //点击页面是否收起下拉列表(true/false)
 	};
+	
+	
 	var options = $.extend(defaults, options);
 	//插件涉及的元素节点
 	var selectWrapper = options._selectWrapper;
@@ -89,11 +92,13 @@ $.fn.DsSelect = function (options) {
 	var curSelectClass = options._currentSelectClass;
 	var curOptionClass = options._currentOptionClass;
 	var curContentClass = options._currentContentClass;
+	var toggleIconText = options._toggleIconText;
 	//插件的其他属性
 	var switchSpeed = options._switchSpeed;
 	var defaultBorderColor = options._defaultBorderColor;
 	var defaultIconColor = options._iconDefaultColor;
-	
+	//全局变量
+	var originalIconText = $(iconNode).html();//小三角的初始内容
 	
 
 	$(selectWrapper).find(toggleNode).each(function(index, element) {   
@@ -109,10 +114,20 @@ $.fn.DsSelect = function (options) {
 		  //iconNode
 		  var curIconNode = curToggleNode.find(iconNode);
 		  curIconNode.toggleClass(toggleIconClass);
-		  if(curIconNode.hasClass(toggleIconClass)){
-		  	  curIconNode.css({"border-top-width":"0","border-bottom-width":"6px"});
+		  if(originalIconText==''||originalIconText==' '||originalIconText==null){
+			  if(curIconNode.hasClass(toggleIconClass)){
+				  curIconNode.css({"border-top-width":"0","border-bottom-width":"6px"});
+			  }else{
+				  curIconNode.css({"border-bottom-width":"0","border-top-width":"6px"});
+			  }
 		  }else{
-		  	  curIconNode.css({"border-bottom-width":"0","border-top-width":"6px"});
+		  	  if(curIconNode.hasClass(toggleIconClass)){
+				  if(toggleIconText){
+				     curIconNode.html(toggleIconText);
+			      }
+			  }else{
+				  curIconNode.html(originalIconText);
+			  }
 		  }
 		  //selectNode
 		  var curSelectNode = curToggleNode.siblings(selectNode); //鼠标当前操作的下拉列表
@@ -169,7 +184,11 @@ $.fn.DsSelect = function (options) {
 	$(selectWrapper).find(toggleNode).css({"position":"relative","padding":"0 10px","width":"100%","height":"38px","font-size":"14px","line-height":"36px","border-style":"solid","border-width":"1px","border-color":defaultBorderColor,"border-radius":"3px","cursor":"pointer"});
 	//iconNode
 	var iconArray = $(selectWrapper).find(toggleNode).find(iconNode);
-	iconArray.css({"position":"absolute","right":"10px","top":"15px","color":"#606060","display":"inline-block","width":"0","height":"0","border-style":"solid","border-width":"6px","border-top-color":defaultIconColor,"border-right-color":"transparent","border-bottom-color":defaultIconColor,"border-left-color":"transparent","border-bottom-width":"0"});
+	if(originalIconText==''||originalIconText==' '||originalIconText==null){
+		iconArray.css({"position":"absolute","right":"10px","top":($(selectWrapper).find(toggleNode).height() - 5)/2,"color":"#606060","display":"inline-block","width":"0","height":"0","border-style":"solid","border-width":"5px","border-top-color":defaultIconColor,"border-right-color":"transparent","border-bottom-color":defaultIconColor,"border-left-color":"transparent","border-bottom-width":"0"});
+	}else{
+		iconArray.css({"position":"absolute","right":"10px","top":($(selectWrapper).find(toggleNode).height() - iconArray.height())/2,"color":defaultIconColor});
+	}
 	//select style
 	$(selectWrapper).find(selectNode).css({"display":"none","position":"absolute","z-index":"5","width":$(selectWrapper).find(toggleNode).outerWidth(),"background-color":"#fff","border-style":"solid","border-width":"1px","border-color":defaultBorderColor,"border-top":"none"});
 	//option style
