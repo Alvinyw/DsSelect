@@ -5,12 +5,12 @@
 <title>ds-select</title>
 <link type="text/css" rel="stylesheet" href="font-awesome.min.css"/>
 <script type="text/javascript" src="jquery.min.js"></script>
-<script type="text/javascript" src="DsSelect.js"></script>
+<script type="text/javascript" src="DsSelect.min.js"></script>
 <style>
 #DropDown { width: 80%; }
-div[class*=selectWrapper],div[id*=selectWrapper] { margin: 30px !important; width:300px !important; }
+div[class*=selectWrapper], div[id*=selectWrapper] { margin: 30px !important; width: 300px !important; }
 div[class*=content] { margin: 30px !important; padding: 15px !important; border: 1px solid #ddd; }
-.item { margin-bottom:80px;}
+.item { margin-bottom: 70px; }
 </style>
 </head>
 
@@ -72,7 +72,6 @@ div[class*=content] { margin: 30px !important; padding: 15px !important; border:
         <div class="content4"> Option 2 </div>
         <div class="content4"> Option 3 </div>
     </div>
-    
     <div class="item">
         <h2>5、将 toggleNode 的子元素的 class 去掉</h2>
         <div class="selectWrapper5">
@@ -142,6 +141,34 @@ div[class*=content] { margin: 30px !important; padding: 15px !important; border:
         <div class="content9 on"> Option 1 </div>
         <div class="content9"> Option 2 </div>
         <div class="content9"> Option 3 </div>
+    </div>
+    <div class="item">
+        <h2>10、改变 toggleNode 下 icon 的样式</h2>
+        <div class="selectWrapper10">
+            <div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+            <ul class="selectNode">
+                <li class="on">Option 1</li>
+                <li>Option 2</li>
+                <li>Option 3</li>
+            </ul>
+        </div>
+        <div class="content10 on"> Option 1 </div>
+        <div class="content10"> Option 2 </div>
+        <div class="content10"> Option 3 </div>
+    </div>
+    <div class="item">
+        <h2>11、改变 select 的下拉速度</h2>
+        <div class="selectWrapper11">
+            <div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+            <ul class="selectNode">
+                <li class="on">Option 1</li>
+                <li>Option 2</li>
+                <li>Option 3</li>
+            </ul>
+        </div>
+        <div class="content11 on"> Option 1 </div>
+        <div class="content11"> Option 2 </div>
+        <div class="content11"> Option 3 </div>
     </div>
 </div>
 </body>
@@ -227,10 +254,30 @@ $(".selectWrapper9").DsSelect({
 	_selectWrapper: ".selectWrapper9",
 	_controlContent: ".content9",
 	
-	_toggleNodeFontSize: "18px",
-	_toggleNodeFontColor: "#fe8e14",
-	_toggleNodeHeight: "58px",
-	_toggleNodePadding: "0 30px 0 30px"
+	_optionFontSize: "18px",
+	_optionLineHeight: "48px",
+	_optionFontColor: "#000",
+	_optionHoverBgColor: "#fe8e14",
+	_optionCurBgColor: "green"
+});
+
+//10、改变 toggleNode 下 icon 的样式
+$(".selectWrapper10").DsSelect({
+	_selectWrapper: ".selectWrapper10",
+	_controlContent: ".content10",
+	
+	_iconPositionRight: "20px",
+	_iconColor: "#fe8e14",
+	_iconBorderWidth: "8px",
+	_iconFontSize: "14px"
+});
+
+//11、改变 select 的下拉速度
+$(".selectWrapper11").DsSelect({
+	_selectWrapper: ".selectWrapper11",
+	_controlContent: ".content11",
+	
+	_switchSpeed: "fast"
 });
 
 })(jQuery);

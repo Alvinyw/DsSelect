@@ -102,7 +102,7 @@ $.fn.DsSelect = function (options) {
 		  }else{
 		  	  setTimeout(function(){
 			     curToggleNode.css({"border-bottom-left-radius":borderRadius,"border-bottom-right-radius":borderRadius});
-			  },300);
+			  },400);
 		  }
 		  //iconNode
 		  var curIconNode = curToggleNode.find(iconNode);
@@ -156,7 +156,7 @@ $.fn.DsSelect = function (options) {
 			$(selectWrapper).find(toggleNode).removeClass(toggleNodeClass);
 			setTimeout(function(){
 				$(selectWrapper).find(toggleNode).css({"border-radius":borderRadius});
-			},300);
+			},400);
 			if(originalIconText==''||originalIconText==' '||originalIconText==null){
 				$(selectWrapper).find(iconNode).removeClass(toggleIconClass).css({"border-bottom-width":"0","border-top-width":iconBorderWidth});
 			}else{
