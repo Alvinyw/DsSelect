@@ -52,9 +52,15 @@ $(targetNode).DsSelect(
 ```
 
 ## 二、插件用法
+
+该插件是引用了 jQuery，所以使用前需引入 jQuery 文件：
+```javascript
+<script type="text/javascript" src="jquery.min.js"></script>
+```
+
 1. **默认用法（插件全部元素和 class 取默认值）**
 
-	*html 代码*
+	html 代码
 	
 	```html
 	<div class="selectWrapper">
@@ -69,14 +75,14 @@ $(targetNode).DsSelect(
 	<div class="content"> Option 2 </div>
 	<div class="content"> Option 3 </div>
 	```
-	*javascript 代码*
+	javascript 代码
 	
 	```javascript
 	$(".selectWrapper").DsSelect();
 	```
 2. **将 select 元素由 ul 换成 div 或其他**
 
-	*html 代码*
+	html 代码
 	
 	```html
 	<div class="selectWrapper2">
@@ -91,7 +97,7 @@ $(targetNode).DsSelect(
 	<div class="content2"> Option 2 </div>
 	<div class="content2"> Option 3 </div>
 	```
-	*javascript 代码*
+	javascript 代码
 	
 	```javascript
 	$(".selectWrapper2").DsSelect({
@@ -101,3 +107,285 @@ $(targetNode).DsSelect(
 		_optionNode: "div"
 	});
 	```
+3. **将插件所有元素的 class 改成 id**
+
+	html 代码
+	
+	```html
+	<div id="selectWrapper3">
+		<div id="toggleNode"><span id="curOptionText">Option 1</span><span id="icon"></span></div>
+		<ul id="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content3 on"> Option 1 </div>
+	<div class="content3"> Option 2 </div>
+	<div class="content3"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$("#selectWrapper3").DsSelect({
+		_selectWrapper: "#selectWrapper3",
+		_controlContent: ".content3",
+		
+		_toggleNode: "#toggleNode",
+		_currentText: "#curOptionText",
+		_iconNode: "#icon", 
+		_selectNode: "#selectNode"
+	});
+	```
+	
+4. **插件全部元素的 class 都不用默认值**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper4">
+		<div class="aa"><span class="bb">Option 1</span><span class="cc"></span></div>
+		<ul class="dd">
+			<li class="ee">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content4 ii"> Option 1 </div>
+	<div class="content4"> Option 2 </div>
+	<div class="content4"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper4").DsSelect({
+	_selectWrapper: ".selectWrapper4",
+		_controlContent: ".content4",
+		
+		_toggleNode: ".aa",
+		_currentText: ".bb",
+		_iconNode: ".cc", 
+		_selectNode: ".dd", 
+		_currentOptionClass: "ee",
+		_currentSelectClass: "ff",
+		_toggleNodeClass: "gg",
+		_toggleIconClass: "hh",
+		_currentContentClass: "ii"
+	});
+	```
+5. **将 toggleNode 的子元素的 class 去掉**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper5">
+		<div class="toggleNode"><span>Option 1</span><i></i></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content5 on"> Option 1 </div>
+	<div class="content5"> Option 2 </div>
+	<div class="content5"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper5").DsSelect({
+		_selectWrapper: ".selectWrapper5",
+		_controlContent: ".content5",
+		
+		_currentText: "span",
+		_iconNode: "i"
+	});
+
+	```
+	
+6. **将下拉小三角改为 font-awesome 的下拉箭头**
+
+	html 代码
+	
+	```html
+	<!--head-->
+	<link type="text/css" rel="stylesheet" href="font-awesome.min.css"/>
+	
+	<!--Body-->
+	<div class="selectWrapper6">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"><i class="fa fa-angle-down" aria-hidden="true"></i></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content6 on"> Option 1 </div>
+	<div class="content6"> Option 2 </div>
+	<div class="content6"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper6").DsSelect({
+		_selectWrapper: ".selectWrapper6",
+		_controlContent: ".content6",
+		
+		_toggleIconText: "<i class='fa fa-angle-up' aria-hidden='true'></i>"
+	});
+	```
+7. **改变插件边框颜色和倒角**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper7">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content7 on"> Option 1 </div>
+	<div class="content7"> Option 2 </div>
+	<div class="content7"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper7").DsSelect({
+		_selectWrapper: ".selectWrapper7",
+		_controlContent: ".content7",
+		
+		_borderColor: "#fe8d14",
+		_borderRadius: "6px"
+	});
+	```
+8. **改变绑定点击事件的节点 toggleNode 的样式**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper8">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content8 on"> Option 1 </div>
+	<div class="content8"> Option 2 </div>
+	<div class="content8"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper8").DsSelect({
+		_selectWrapper: ".selectWrapper8",
+		_controlContent: ".content8",
+		
+		_toggleNodeFontSize: "18px",
+		_toggleNodeFontColor: "#fe8e14",
+		_toggleNodeHeight: "58px",
+		_toggleNodePadding: "0 30px 0 30px"
+	});
+	```
+9. **改变 select 下 option 的样式**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper9">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content9 on"> Option 1 </div>
+	<div class="content9"> Option 2 </div>
+	<div class="content9"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper9").DsSelect({
+		_selectWrapper: ".selectWrapper9",
+		_controlContent: ".content9",
+		
+		_optionFontSize: "18px",
+		_optionLineHeight: "48px",
+		_optionFontColor: "#000",
+		_optionHoverBgColor: "#fe8e14",
+		_optionCurBgColor: "green"
+	});
+	```
+10. **改变 toggleNode 下 icon 的样式**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper10">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content10 on"> Option 1 </div>
+	<div class="content10"> Option 2 </div>
+	<div class="content10"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper10").DsSelect({
+		_selectWrapper: ".selectWrapper10",
+		_controlContent: ".content10",
+		
+		_iconPositionRight: "20px",
+		_iconColor: "#fe8e14",
+		_iconBorderWidth: "8px",
+		_iconFontSize: "14px"
+	});
+	```
+11. **改变 select 的下拉速度**
+
+	html 代码
+	
+	```html
+	<div class="selectWrapper11">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<ul class="selectNode">
+			<li class="on">Option 1</li>
+			<li>Option 2</li>
+			<li>Option 3</li>
+		</ul>
+	</div>
+	<div class="content11 on"> Option 1 </div>
+	<div class="content11"> Option 2 </div>
+	<div class="content11"> Option 3 </div>
+	```
+	javascript 代码
+	
+	```javascript
+	$(".selectWrapper11").DsSelect({
+		_selectWrapper: ".selectWrapper11",
+		_controlContent: ".content11",
+		
+		_switchSpeed: "fast"
+	});
+	```
+
+## 三、插件 Demo
+
+[DsSelect Demo](https://alvinyw.github.io/Blog/DsSelect/DsSelect.html)
+
+## 四、插件优缺点
+
+**优点：**参数齐全，插件样式高度可定制化；
+**缺点：**对参数 content 模块的操作不是很友好，后期会改成回调函数的方式来执行操作方法；
