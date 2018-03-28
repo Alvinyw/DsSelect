@@ -52,9 +52,9 @@ $(targetNode).DsSelect(
 ```
 
 ## 二、插件用法
-1. 默认用法（插件全部元素和 class 取默认值）；
+1. **默认用法（插件全部元素和 class 取默认值）**
 
-	**html 代码**
+	*html 代码*
 	
 	```html
 	<div class="selectWrapper">
@@ -69,14 +69,14 @@ $(targetNode).DsSelect(
 	<div class="content"> Option 2 </div>
 	<div class="content"> Option 3 </div>
 	```
-	**javascript 代码**
+	*javascript 代码*
 	
 	```javascript
 	$(".selectWrapper").DsSelect();
 	```
-2. 将 select 元素由 ul 换成 div 或其他；
+2. **将 select 元素由 ul 换成 div 或其他**
 
-	**html 代码**
+	*html 代码*
 	
 	```html
 	<div class="selectWrapper2">
@@ -91,7 +91,7 @@ $(targetNode).DsSelect(
 	<div class="content2"> Option 2 </div>
 	<div class="content2"> Option 3 </div>
 	```
-	**javascript 代码**
+	*javascript 代码*
 	
 	```javascript
 	$(".selectWrapper2").DsSelect({
