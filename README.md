@@ -70,24 +70,24 @@ $(targetNode).DsSelect(
 $(".selectWrapper").DsSelect();
 ```
 2. 将 select 元素由 ul 换成 div 或其他
-```html
-<div class="selectWrapper2">
-	<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
-	<div class="selectNode">
-		<div class="on">Option 1</div>
-		<div>Option 2</div>
-		<div>Option 3</div>
+	```html
+	<div class="selectWrapper2">
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<div class="selectNode">
+			<div class="on">Option 1</div>
+			<div>Option 2</div>
+			<div>Option 3</div>
+		</div>
 	</div>
-</div>
-<div class="content2 on"> Option 1 </div>
-<div class="content2"> Option 2 </div>
-<div class="content2"> Option 3 </div>
-```
-```javascript
-$(".selectWrapper2").DsSelect({
-	_selectWrapper: ".selectWrapper2",
-	_controlContent: ".content2",
-	
-	_optionNode: "div"
-});
-```
+	<div class="content2 on"> Option 1 </div>
+	<div class="content2"> Option 2 </div>
+	<div class="content2"> Option 3 </div>
+	```
+	```javascript
+	$(".selectWrapper2").DsSelect({
+		_selectWrapper: ".selectWrapper2",
+		_controlContent: ".content2",
+		
+		_optionNode: "div"
+	});
+	```
