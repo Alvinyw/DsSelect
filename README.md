@@ -52,8 +52,10 @@ $(targetNode).DsSelect(
 ```
 
 ## 二、插件用法
-1. 默认用法（插件全部元素和 class 取默认值）
+1. 默认用法（插件全部元素和 class 取默认值）；
+
 	**html 代码**
+	
 	```html
 	<div class="selectWrapper">
 		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
@@ -68,25 +70,29 @@ $(targetNode).DsSelect(
 	<div class="content"> Option 3 </div>
 	```
 	**javascript 代码**
+	
 	```javascript
 	$(".selectWrapper").DsSelect();
 	```
-2. 将 select 元素由 ul 换成 div 或其他
+2. 将 select 元素由 ul 换成 div 或其他；
+
 	**html 代码**
+	
 	```html
 	<div class="selectWrapper2">
-	<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
-	<div class="selectNode">
-		<div class="on">Option 1</div>
-		<div>Option 2</div>
-		<div>Option 3</div>
-	</div>
+		<div class="toggleNode"><span class="curOptionText">Option 1</span><span class="icon"></span></div>
+		<div class="selectNode">
+			<div class="on">Option 1</div>
+			<div>Option 2</div>
+			<div>Option 3</div>
+		</div>
 	</div>
 	<div class="content2 on"> Option 1 </div>
 	<div class="content2"> Option 2 </div>
 	<div class="content2"> Option 3 </div>
 	```
 	**javascript 代码**
+	
 	```javascript
 	$(".selectWrapper2").DsSelect({
 		_selectWrapper: ".selectWrapper2",
