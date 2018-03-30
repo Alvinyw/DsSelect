@@ -174,10 +174,10 @@ $.fn.DsSelect = function (options) {
 	});
 	//default css
 	$(selectWrapper).find("*").css({"padding":"0","margin":"0","list-style":"none","-webkit-box-sizing":"border-box","-moz-box-sizing":"border-box","box-sizing":"border-box"});
-	$(selectWrapper).find(selectWrapper).css({"position":"relative"});
+	$(selectWrapper).css({"position":"relative"});
 	
 	//toggleNode
-	$(selectWrapper).find(toggleNode).css({"position":"relative","padding":toggleNodePadding,"width":$(selectWrapper).outerWidth(),"height":toggleNodeHeight,"font-size":toggleNodeFontSize,"color":toggleNodeFontColor,"line-height":toggleNodeHeight,"border-style":"solid","border-width":"1px","border-color":borderColor,"border-radius":borderRadius,"cursor":"pointer"});
+	$(selectWrapper).find(toggleNode).css({"position":"relative","padding":toggleNodePadding,"width":"100%","height":toggleNodeHeight,"font-size":toggleNodeFontSize,"color":toggleNodeFontColor,"line-height":toggleNodeHeight,"border-style":"solid","border-width":"1px","border-color":borderColor,"border-radius":borderRadius,"cursor":"pointer"});
 	
 	//iconNode
 	var iconArray = $(selectWrapper).find(toggleNode).find(iconNode);
@@ -189,7 +189,7 @@ $.fn.DsSelect = function (options) {
 	}
 
 	//select
-	$(selectWrapper).find(selectNode).css({"display":"none","position":"absolute","z-index":selectIndex,"width":$(selectWrapper).outerWidth(),"background-color":selectBgColor,"border-style":"solid","border-width":"1px","border-color":borderColor,"border-top":"none","border-bottom-left-radius":borderRadius,"border-bottom-right-radius":borderRadius,"overflow":"hidden"});
+	$(selectWrapper).find(selectNode).css({"display":"none","position":"absolute","z-index":selectIndex,"width":"100%","background-color":selectBgColor,"border-style":"solid","border-width":"1px","border-color":borderColor,"border-top":"none","border-bottom-left-radius":borderRadius,"border-bottom-right-radius":borderRadius,"overflow":"hidden"});
 	
 	//option
 	var optionArray = $(selectWrapper).find(selectNode).find(optionNode);
