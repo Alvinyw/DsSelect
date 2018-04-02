@@ -48,7 +48,8 @@ $.fn.DsSelect = function (options) {
 	};
 	
 	
-	var options = $.extend(defaults, options);
+	var options = $.extend(defaults, options);//把传入的参数 options 合并到 defaults 里并重新赋给 options；若 options 里的参数与 defaults 有重复，则 options 会覆盖 defaults 里的参数
+	
 	//插件涉及的元素节点
 	var selectWrapper = options._selectWrapper;
 	var toggleNode = options._toggleNode;
